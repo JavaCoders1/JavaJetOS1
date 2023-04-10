@@ -8,10 +8,11 @@ import java.util.Scanner;
 
 public class files 
 {
-    public static void main(String[] args) 
+    public static void main(String[] args) throws FileNotFoundException 
     {
             Scanner sc=new Scanner(System.in);
             int optionfile;
+            String filename;
             System.out.println("Do you want to 1. Create a File or 2. Open a File\nEnter Option: ");
             optionfile=sc.nextInt();
             if(optionfile==1)
@@ -19,15 +20,14 @@ public class files
                 try  
                 {
                     System.out.println("Enter your filename: ");
-                    String filename;
-                    filename=sc.nextLine();  
-                    File myObj = new File(filename);
+                    filename=sc.next();  
+                    File NameOfFile = new File(filename);
                     try
                     {
                     
-                    if (myObj.createNewFile()) 
+                    if (NameOfFile.createNewFile())
                     {
-                        System.out.println("File created: " + myObj.getName());
+                        System.out.println("File created: " + NameOfFile.getName());
                     } 
                     else 
                     {
@@ -41,9 +41,10 @@ public class files
                     }
                     try 
                     {
-                        FileWriter myWriter = new FileWriter(myObj);
+                        FileWriter myWriter = new FileWriter(NameOfFile);
+                        String text;
                         System.out.println("Enter the text you want to save: ");
-                        String text= sc.nextLine();
+                        text= sc.next();
                         myWriter.write(text);
                         myWriter.close();
                         System.out.println("Successfully wrote to the file.");
@@ -60,18 +61,13 @@ public class files
                     {
                         try 
                         {
-                            Scanner myReader = new Scanner(myObj);
+                            Scanner myReader = new Scanner(NameOfFile);
                             while (myReader.hasNextLine()) 
                             {
                             String data = myReader.nextLine();
                             System.out.println("\n\n"+data);
                             }
                             myReader.close();
-                        }   
-                        catch (FileNotFoundException e) 
-                        {
-                            System.out.println("An error occurred.");
-                            e.printStackTrace();
                         }
                         finally
                         {
@@ -102,6 +98,10 @@ public class files
                         }
 
                     }
+                    else
+                    {
+
+                    }
                                         
                 }
                 catch(Exception ex)
@@ -110,4 +110,8 @@ public class files
                 {}
             }
         }
+
+    private static String NameOfFile() {
+        return null;
+    }
     }
