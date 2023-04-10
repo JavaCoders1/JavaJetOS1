@@ -10,6 +10,7 @@ public class files
 {
     public static void main(String[] args) throws FileNotFoundException 
     {
+            
             Scanner sc=new Scanner(System.in);
             int optionfile;
             String filename;
@@ -44,7 +45,7 @@ public class files
                         FileWriter myWriter = new FileWriter(NameOfFile);
                         String text;
                         System.out.println("Enter the text you want to save: ");
-                        text= sc.next();
+                        text= sc.nextLine();
                         myWriter.write(text);
                         myWriter.close();
                         System.out.println("Successfully wrote to the file.");
@@ -57,8 +58,8 @@ public class files
                     System.out.println("Do you want to read the text you saved in your file: \n1.Yes\n2.No\nEnter Option No: ");
                     int readop;
                     readop=sc.nextInt();
-                    if (readop==1)
-                    {
+                    
+                    if (readop==1){
                         try 
                         {
                             Scanner myReader = new Scanner(NameOfFile);
@@ -88,7 +89,8 @@ public class files
                         System.out.println("not supported");  
                         return;  
                         }  
-                        Desktop desktop = Desktop.getDesktop();  
+                        Desktop desktop = Desktop.getDesktop();
+                        if(Desktop.isDesktopSupported())  
                         if(file.exists())         //checks file exists or not  
                         desktop.open(file);              //opens the specified file  
                         }  
