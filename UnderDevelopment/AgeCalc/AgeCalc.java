@@ -18,8 +18,9 @@ public class AgeCalc{
         int DateOfB;
         int YearofB;
         int MonthOfB;
-        int ageInDays;
-        int ageInMonths;
+        int ageInDays = 0;
+        int ageInMonths = 0;
+        boolean BirthDayThisYear = true;
         DateOfB = Integer.parseInt(parts[0]);
         MonthOfB = Integer.parseInt(parts[1]);
         YearofB = Integer.parseInt(parts[2]);
@@ -28,6 +29,9 @@ public class AgeCalc{
         int CurrentMonth = Integer.parseInt(PartsOfNow[1]);
         String[] FindCurrentDate = PartsOfNow[2].split("T");
         int CurrentDate = Integer.parseInt(FindCurrentDate[0]);
+        if (MonthOfB > CurrentMonth){
+            BirthDayThisYear = false;
+        }
         if (CurrentDate < DateOfB){
             if (CurrentMonth == 01 || CurrentMonth == 03 || CurrentMonth == 05 || CurrentMonth == 07 || CurrentMonth == 8 || CurrentMonth == 10 || CurrentMonth == 12){
                 CurrentDate += 31;
@@ -52,14 +56,18 @@ public class AgeCalc{
             ageInDays = CurrentDate - DateOfB;
         }
         if (CurrentMonth < MonthOfB){ // carrying over a year for month subtration
-            CurrentMonth +=1;
-            CurrentDate -= 1;
+            CurrentMonth +=12;
+            CurrentYear -= 1;
         }
         if (CurrentMonth >= MonthOfB){
             ageInMonths = CurrentMonth - MonthOfB;
         }
         int ageInYears = CurrentYear - YearofB;
-        ageInYears += (ageInYears/4) - 1;
-        System.out.println("You are " + ageInYears + " , " + ageInMonths + " months, and " + ageInDays);
+        ageInDays += (ageInYears/4) - 1;
+        ageInDays -= 1;
+        if (BirthDayThisYear == false){
+            ageInYears -= 1;
+        }
+        System.out.println("You are " + ageInYears + " years, " + ageInMonths + " months, and " + ageInDays + " days old.");
     }
 }
