@@ -18,6 +18,8 @@ public class AgeCalc{
         int DateOfB;
         int YearofB;
         int MonthOfB;
+        int ageInDays;
+        int ageInMonths;
         DateOfB = Integer.parseInt(parts[0]);
         MonthOfB = Integer.parseInt(parts[1]);
         YearofB = Integer.parseInt(parts[2]);
@@ -28,39 +30,36 @@ public class AgeCalc{
         int CurrentDate = Integer.parseInt(FindCurrentDate[0]);
         if (CurrentDate < DateOfB){
             if (CurrentMonth == 01 || CurrentMonth == 03 || CurrentMonth == 05 || CurrentMonth == 07 || CurrentMonth == 8 || CurrentMonth == 10 || CurrentMonth == 12){
-                CurrentDate += 31
-                CurrentMonth -= 1
+                CurrentDate += 31;
+                CurrentMonth -= 1;
             }
             else if (CurrentMonth == 04 || CurrentMonth == 06 || CurrentMonth == 9 || CurrentMonth == 11){
-                CurrentDate += 30
-                CurrentMonth -= 1
+                CurrentDate += 30;
+                CurrentMonth -= 1;
             }
             else{
                 if (CurrentYear%100==0){
                     if (CurrentYear%400==0){
-                        DateOfB -= 1
+                        DateOfB -= 1;
                     }
                     else if (CurrentDate%400!=0){
                         
                     }
                 }
             }
-        
+        }
         if (CurrentDate >= DateOfB){ // finding the age of the user in days
-            int AgeInDate = CurrentDate - DateOfB;
+            ageInDays = CurrentDate - DateOfB;
         }
-        
+        if (CurrentMonth < MonthOfB){ // carrying over a year for month subtration
+            CurrentMonth +=1;
+            CurrentDate -= 1;
         }
-
+        if (CurrentMonth >= MonthOfB){
+            ageInMonths = CurrentMonth - MonthOfB;
+        }
+        int ageInYears = CurrentYear - YearofB;
+        ageInYears += (ageInYears/4) - 1;
+        System.out.println("You are " + ageInYears + " , " + ageInMonths + " months, and " + ageInDays);
     }
 }
-
-
-
-
-
-
-
-
-
-
