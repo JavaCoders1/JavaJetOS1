@@ -26,12 +26,12 @@ public class AgeCalc{
         int CurrentMonth = Integer.parseInt(PartsOfNow[1]);
         String[] FindCurrentDate = PartsOfNow[2].split("T");
         int CurrentDate = Integer.parseInt(FindCurrentDate[0]);
-        if (CurrentDate < DateofB){
-            if (CurrentMonth == 01 || CurrentMonth == 03 || CurrentMonth == 05 || CurrentMonth == 07 || CurrentMonth == 08 || CurrentMonth == 10 || CurrentMonth == 12 || ){
+        if (CurrentDate < DateOfB){
+            if (CurrentMonth == 01 || CurrentMonth == 03 || CurrentMonth == 05 || CurrentMonth == 07 || CurrentMonth == 8 || CurrentMonth == 10 || CurrentMonth == 12){
                 CurrentDate += 31
                 CurrentMonth -= 1
             }
-            else if (CurrentMonth == 04 || CurrentMonth == 06 || CurrentMonth == 09 || CurrentMonth == 11){
+            else if (CurrentMonth == 04 || CurrentMonth == 06 || CurrentMonth == 9 || CurrentMonth == 11){
                 CurrentDate += 30
                 CurrentMonth -= 1
             }
@@ -46,7 +46,7 @@ public class AgeCalc{
                 }
             }
         
-        if (CurrentDate >= DateOfB){
+        if (CurrentDate >= DateOfB){ // finding the age of the user in days
             int AgeInDate = CurrentDate - DateOfB;
         }
         

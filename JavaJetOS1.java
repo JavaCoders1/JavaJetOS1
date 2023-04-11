@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+import javax.xml.crypto.dsig.SignedInfo;
+
 
 
 
@@ -152,6 +154,7 @@ public class JavaJetOS1
                         }
                     }
                 }
+                System.out.println("Shutting down JavaJetOS.")
             }
         }
     }
