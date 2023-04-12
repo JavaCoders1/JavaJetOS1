@@ -1,9 +1,10 @@
 import java.util.Scanner;
-
+import java.io.File;
+import java.io.FileNotFoundException;
 import javax.xml.crypto.dsig.SignedInfo;
-
+import java.io.FileWriter;
+import java.io.IOException;
 import java.time.LocalDateTime;
-
 import javax.print.attribute.standard.DateTimeAtProcessing;
 import javax.swing.table.DefaultTableCellRenderer;
 
@@ -15,7 +16,7 @@ public class JavaJetOS1
 {
     public static void main(String[] args)
     {
-        int AppToRun;
+        int AppToRun = 0;
         int AgeCalcFinal;
         double a;
         double b;
@@ -38,6 +39,8 @@ public class JavaJetOS1
         int CurrentDate = Integer.parseInt(FindCurrentDate[0]);
         int RunCalcAgain;
         String[] parts;
+        int FinalRun2 = 0;
+        boolean askForApp = true;
         
         System.out.println("Welcome to JavaJetOS! Please enter your username: ");
         String username = sc.nextLine();
@@ -48,8 +51,10 @@ public class JavaJetOS1
             System.out.println("Logged in and validated successfully! ");
             int RunAppAgain = 1;
             while (RunAppAgain == 1){
-                System.out.println("Please enter the number of the application you would like to run[Enter 0 to Shut Down]: \n1)Calculator\n2)Age Calculator\n3)Number Guessing Game");
-                AppToRun= sc.nextInt();
+                if(askForApp == true){
+                    System.out.println("Please enter the number of the application you would like to run[Enter 0 to Shut Down]: \n1)Calculator\n2)Age Calculator\n3)Number Guessing Game\n4.Make Files");
+                    AppToRun= sc.nextInt();
+                }
                 if (AppToRun==1)
                 {
                 
@@ -221,6 +226,15 @@ public class JavaJetOS1
                     ageInDays -= 0;
                     System.out.println("You are " + ageInYears + " years, " + ageInMonths + " months, and " + ageInDays + " days old.");
                     System.out.println("Would you like to choose another app to run, re-run Age Calculator, or shut down the OS? \nPlease choose the corresponding option number:\n1) Re-run the Program.\n2)Exit to Main Menu.\n3)Shut down the OS.");
+                    FinalRun2 = sc.nextInt();
+                    askForApp = true;
+                    if (FinalRun2 == 1){
+                        AppToRun = 2;
+                        askForApp = false;
+                    }
+                    else if (FinalRun2 == 3){
+                        RunAppAgain = 0;
+                    }
 
                 }
                 else if (AppToRun==3){
@@ -294,6 +308,72 @@ public class JavaJetOS1
                     }
                 else if (AppToRun==0){
                     RunAppAgain = 0;
+                }
+                else if(AppToRun==4)
+                {
+                     System.out.println("Do you want to 1. Create a File or 2. Open a File");
+        int option = sc.nextInt();
+        sc.nextLine();
+
+        if (option == 1) {
+            System.out.println("Enter the filename: ");
+            String filename = sc.nextLine();
+
+            try {
+                File file = new File(filename);
+                if (file.createNewFile()) {
+                    System.out.println("File created: " + file.getName());
+                } else {
+                    System.out.println("File already exists.");
+                }
+
+                System.out.println("Enter the text you want to save: ");
+                String text = sc.nextLine();
+
+                FileWriter myWriter = new FileWriter(file);
+                myWriter.write(text);
+                myWriter.close();
+                System.out.println("Successfully wrote to the file.");
+            } catch (IOException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
+            }
+        } else if (option == 2) {
+            System.out.println("Enter the filename: ");
+            String filename = sc.nextLine();
+
+            try {
+                File file = new File(filename);
+                Scanner reader = new Scanner(file);
+                while (reader.hasNextLine()) {
+                    String line = reader.nextLine();
+                    System.out.println(line);
+                }
+                reader.close();
+
+                System.out.println("Do you want to replace the content of the file? (y/n)");
+                String replace = sc.nextLine();
+
+                if (replace.equalsIgnoreCase("y")) {
+                    System.out.println("Enter the new text: ");
+                    String newText = sc.nextLine();
+
+                    FileWriter myWriter = new FileWriter(file);
+                    myWriter.write(newText);
+                    myWriter.close();
+                    System.out.println("Successfully wrote to the file.");
+                }
+            } catch (FileNotFoundException e) {
+                System.out.println("File not found.");
+            } catch (IOException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println("Invalid option.");
+        }
+
+        sc.close();
                 }
             }
         }
