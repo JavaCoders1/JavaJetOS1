@@ -373,7 +373,7 @@ public class JavaJetOS1
             System.out.println("Invalid option.");
         }
 
-        sc.close();
+        //sc.close();
                 }
             }
         }
