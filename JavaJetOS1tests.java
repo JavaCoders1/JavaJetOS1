@@ -1,44 +1,19 @@
 import java.util.Scanner;
 
-import javax.xml.crypto.dsig.SignedInfo;
-
-import java.time.LocalDateTime;
-
-import javax.print.attribute.standard.DateTimeAtProcessing;
-import javax.swing.table.DefaultTableCellRenderer;
-
-
-
-
-
-public class JavaJetOS1
+public class JavaJetOS1tests
 {
+   
+
     public static void main(String[] args)
     {
         int AppToRun;
-        int AgeCalcFinal;
         double a;
         double b;
         double x;
         double y;
-        LocalDateTime now = LocalDateTime.now();
-        String CurrentTime = now.toString();
-        Scanner sc=new Scanner(System.in);
-        String DOB = "19-03-2009";
-        int DateOfB = 0;
-        int YearofB = 0;
-        int MonthOfB = 0;
-        int ageInDays = 0;
-        int ageInMonths = 0;
-        boolean BirthDayThisYear = true;
-        String[] PartsOfNow = CurrentTime.split("-");
-        int CurrentYear = Integer.parseInt(PartsOfNow[0]);
-        int CurrentMonth = Integer.parseInt(PartsOfNow[1]);
-        String[] FindCurrentDate = PartsOfNow[2].split("T");
-        int CurrentDate = Integer.parseInt(FindCurrentDate[0]);
         int RunCalcAgain;
-        String[] parts;
-        
+        Scanner sc = new Scanner(System.in);
+    
         System.out.println("Welcome to JavaJetOS! Please enter your username: ");
         String username = sc.nextLine();
         System.out.println("Please enter your password: ");
@@ -48,7 +23,7 @@ public class JavaJetOS1
             System.out.println("Logged in and validated successfully! ");
             int RunAppAgain = 1;
             while (RunAppAgain == 1){
-                System.out.println("Please enter the number of the application you would like to run: \n1)Calculator\n2)Age Calculator\n3)Number Guessing Game");
+                System.out.println("Please enter the number of the application you would like to run: \n1)Calculator\n2)Number Guessing Game");
                 AppToRun= sc.nextInt();
                 if (AppToRun==1)
                 {
@@ -175,54 +150,6 @@ public class JavaJetOS1
                         RunAppAgain = sc.nextInt();
                     }
                 }
-                if (AppToRun == 2){
-                    System.out.println("Please enter your date of birth in the format [DD-MM-YYYY]: ");
-                    DOB = sc.next();
-                    parts = DOB.split("-");
-                    System.out.println(parts[0]);
-                    DateOfB = Integer.parseInt(parts[0]);
-                    MonthOfB = Integer.parseInt(parts[1]);
-                    YearofB = Integer.parseInt(parts[2]);
-                    if (MonthOfB > CurrentMonth){
-                        BirthDayThisYear = false;
-                    }
-                    if (CurrentDate < DateOfB){
-                        if (CurrentMonth == 01 || CurrentMonth == 03 || CurrentMonth == 05 || CurrentMonth == 07 || CurrentMonth == 8 || CurrentMonth == 10 || CurrentMonth == 12){
-                            CurrentDate += 31;
-                            CurrentMonth -= 1;
-                        }
-                        else if (CurrentMonth == 04 || CurrentMonth == 06 || CurrentMonth == 9 || CurrentMonth == 11){
-                            CurrentDate += 30;
-                            CurrentMonth -= 1;
-                        }
-                        else{
-                            if (CurrentYear%100==0){
-                                if (CurrentYear%400==0){
-                                    DateOfB -= 1;
-                                }
-                                else if (CurrentDate%400!=0){
-                                    
-                                }
-                            }
-                        }
-                    }
-                    if (CurrentDate >= DateOfB){ // finding the age of the user in days
-                        ageInDays = CurrentDate - DateOfB;
-                    }
-                    if (CurrentMonth < MonthOfB){ // carrying over a year for month subtration
-                        CurrentMonth +=12;
-                        CurrentYear -= 1;
-                    }
-                    if (CurrentMonth >= MonthOfB){
-                        ageInMonths = CurrentMonth - MonthOfB;
-                    }
-                    int ageInYears = CurrentYear - YearofB;
-                    ageInDays += (ageInYears/4) - 1;
-                    ageInDays -= 0;
-                    System.out.println("You are " + ageInYears + " years, " + ageInMonths + " months, and " + ageInDays + " days old.");
-                    System.out.println("Would you like to choose another app to run, re-run Age Calculator, or shut down the OS? \nPlease choose the corresponding option number:\n1) Re-run the Program.\n2)Exit to Main Menu.\n3)Shut down the OS.");
-
-                }
                 else if (AppToRun==3){
                     // Java program for the above approach
 
@@ -233,9 +160,9 @@ public class JavaJetOS1
                                         * Math.random());
 
                     // Given K trials
-                    //System.out.println("How many guesses do you need: ");
-                    int K = 10;
-                    //K = sc.nextInt();
+                    System.out.println("How many guesses do you need: ");
+                    int K;
+                    K = sc.nextInt();
                     int i = 0; 
                     int guess = 0;
 
@@ -292,18 +219,24 @@ public class JavaJetOS1
                             "The number was " + number);
                     }
                     }
+                    }
+
+                    
+                    
+
+                        
+                    
             }
-        }
-        else{
-            System.out.println("Incorrect Username or Password.");
-        }
-        System.out.println("Shutting down JavaJetOS.");
-    }
-}
+    }  
+}   
 
 
 
-       
+
+
+
+
+    
 
 
 

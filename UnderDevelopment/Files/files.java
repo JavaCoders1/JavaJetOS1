@@ -45,19 +45,20 @@ public class files
                         FileWriter myWriter = new FileWriter(NameOfFile);
                         String text;
                         System.out.println("Enter the text you want to save: ");
-                        text= sc.nextLine();
+                        text= sc.next();
                         myWriter.write(text);
                         myWriter.close();
                         System.out.println("Successfully wrote to the file.");
                     } 
                     catch (IOException e) 
+                    
                     {
                         System.out.println("An error occurred.");
                         e.printStackTrace();
                     }
                     System.out.println("Do you want to read the text you saved in your file: \n1.Yes\n2.No\nEnter Option No: ");
                     int readop;
-                    readop=sc.nextInt();
+                    readop=sc.next();
                     
                     if (readop==1){
                         try 
