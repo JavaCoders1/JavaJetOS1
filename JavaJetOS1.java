@@ -176,7 +176,7 @@ public class JavaJetOS1
                 }
                 if (AppToRun == 2){
                     System.out.println("Please enter your date of birth in the format [DD-MM-YYYY]: ");
-                    DOB = sc.nextLine();
+                    DOB = sc.next();
                     parts = DOB.split("-");
                     System.out.println(parts[0]);
                     DateOfB = Integer.parseInt(parts[0]);
