@@ -48,7 +48,7 @@ public class JavaJetOS1
             System.out.println("Logged in and validated successfully! ");
             int RunAppAgain = 1;
             while (RunAppAgain == 1){
-                System.out.println("Please enter the number of the application you would like to run: \n1)Calculator\n2)Age Calculator\n3)Number Guessing Game");
+                System.out.println("Please enter the number of the application you would like to run[Enter 0 to Shut Down]: \n1)Calculator\n2)Age Calculator\n3)Number Guessing Game");
                 AppToRun= sc.nextInt();
                 if (AppToRun==1)
                 {
@@ -292,6 +292,9 @@ public class JavaJetOS1
                             "The number was " + number);
                     }
                     }
+                else if (AppToRun==0){
+                    RunAppAgain = 0;
+                }
             }
         }
         else{

@@ -21,7 +21,7 @@ public class files
                 try  
                 {
                     System.out.println("Enter your filename: ");
-                    filename=sc.next();  
+                    filename=sc.nextLine();  
                     File NameOfFile = new File(filename);
                     try
                     {
@@ -58,7 +58,7 @@ public class files
                     }
                     System.out.println("Do you want to read the text you saved in your file: \n1.Yes\n2.No\nEnter Option No: ");
                     int readop;
-                    readop=sc.next();
+                    readop=sc.nextInt();
                     
                     if (readop==1){
                         try 
