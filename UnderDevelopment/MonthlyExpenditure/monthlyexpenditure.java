@@ -8,9 +8,8 @@ public class monthlyexpenditure
 {
     public static void main(String[] args)
     {
-        String line1.
-        Scanner sc= new Scanner(System.in);
-            String filename = "monthlyexpednituredatabase";
+        try (Scanner sc = new Scanner(System.in)) {
+            String filename = "monthlyexpednituredatabase.txt";
 
             try {
                 File file = new File(filename);
@@ -33,9 +32,13 @@ public class monthlyexpenditure
                     myWriter.close();
                     System.out.println("Successfully wrote to the file.");
                 }
-                else if(replace.equalsIgnoreCase("n"))
+                if(replace.equalsIgnoreCase("n"))
                 {
-                    System.out.println(line);
+                    while (reader.hasNextLine()) 
+                    {
+                        String line = reader.nextLine();
+                        System.out.println(line);
+                    }
                 }
             } catch (FileNotFoundException e) {
                 System.out.println("File not found.");
@@ -43,5 +46,6 @@ public class monthlyexpenditure
                 System.out.println("An error occurred.");
                 e.printStackTrace();
             }
+        }
     }
 }
