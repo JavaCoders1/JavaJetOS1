@@ -4,12 +4,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class monthlyexpenditure
+class monthlyexpenditure
 {
     public static void main(String[] args)
     {
         try (Scanner sc = new Scanner(System.in)) {
-            String filename = "monthlyexpednituredatabase.txt";
+            String filename = "med.txt";
 
             try {
                 File file = new File(filename);
@@ -18,7 +18,7 @@ public class monthlyexpenditure
                     String line = reader.nextLine();
                     System.out.println(line);
                 }
-                reader.close();
+                
 
                 System.out.println("Do you want to replace the content of the file? (y/n)");
                 String replace = sc.nextLine();
@@ -33,16 +33,24 @@ public class monthlyexpenditure
                     System.out.println("Successfully wrote to the file.");
                 }
                 if(replace.equalsIgnoreCase("n"))
-                {
-                    while (reader.hasNextLine()) 
+                {   String filenamen = "med.txt";
+                    File filen = new File(filenamen);
+                    Scanner readern = new Scanner(filen);
+                    while (readern.hasNextLine()) 
                     {
-                        String line = reader.nextLine();
-                        System.out.println(line);
+                        
+                        String linen = readern.nextLine();
+                        System.out.println(linen);
+                        reader.close();
+                        readern.close();
+                        
                     }
+                    sc.close();
                 }
             } catch (FileNotFoundException e) {
                 System.out.println("File not found.");
-            } catch (IOException e) {
+            }
+            catch (IOException e) {
                 System.out.println("An error occurred.");
                 e.printStackTrace();
             }
