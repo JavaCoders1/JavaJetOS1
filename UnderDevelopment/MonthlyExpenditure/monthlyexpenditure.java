@@ -8,15 +8,16 @@ class monthlyexpenditure
 {
     public static void main(String[] args)
     {
-        try (Scanner sc = new Scanner(System.in)) {
+        Scanner sc = new Scanner(System.in);
             String filename = "med.txt";
 
             try {
                 File file = new File(filename);
-                Scanner reader = new Scanner(file);
+                Scanner reader = new Scanner("The previous content was:\n"+file);
+                String tosay = "The previous contect was:\n";
                 while (reader.hasNextLine()) {
                     String line = reader.nextLine();
-                    System.out.println(line);
+                    System.out.println("The previous content was:\n"+line);
                 }
                 
 
@@ -33,16 +34,11 @@ class monthlyexpenditure
                     System.out.println("Successfully wrote to the file.");
                 }
                 if(replace.equalsIgnoreCase("n"))
-                {   String filenamen = "med.txt";
-                    File filen = new File(filenamen);
-                    Scanner readern = new Scanner(filen);
-                    while (readern.hasNextLine()) 
+                {   
+                    while (reader.hasNextLine()) 
                     {
-                        
-                        String linen = readern.nextLine();
-                        System.out.println(linen);
+
                         reader.close();
-                        readern.close();
                         
                     }
                     sc.close();
@@ -54,6 +50,6 @@ class monthlyexpenditure
                 System.out.println("An error occurred.");
                 e.printStackTrace();
             }
-        }
+        
     }
 }
