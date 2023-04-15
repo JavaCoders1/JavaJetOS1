@@ -373,7 +373,11 @@ public class JavaJetOS1
             System.out.println("Invalid option.");
         }
 
+<<<<<<< HEAD
         //sc.close();
+=======
+        
+>>>>>>> 174c28f83aae9e471b5719696e2bf1f78ce2ebe9
                 }
             }
         }
