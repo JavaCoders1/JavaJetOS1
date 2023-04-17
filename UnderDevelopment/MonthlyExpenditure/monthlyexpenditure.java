@@ -8,12 +8,13 @@ class monthlyexpenditure
 {
     public static void main(String[] args)
     {
-        try (Scanner sc = new Scanner(System.in)) {
+        Scanner sc = new Scanner(System.in);
             String filename = "med.txt";
 
             try {
                 File file = new File(filename);
                 Scanner reader = new Scanner(file);
+                System.out.println("The previous content was:\n");
                 while (reader.hasNextLine()) {
                     String line = reader.nextLine();
                     System.out.println(line);
@@ -24,25 +25,37 @@ class monthlyexpenditure
                 String replace = sc.nextLine();
 
                 if (replace.equalsIgnoreCase("y")) {
-                    System.out.println("Enter the new text: ");
-                    String newText = sc.nextLine();
+                    System.out.println("All costs are to be shared in terms of Expenditure per Month\nEnter your salary: ");
+                    int salaryText = sc.nextInt();
+                    String salarytext1 = "Salary: "+salaryText;
+                    System.out.println("Enter money spent over Rent or EMI for House: ");
+                    int renttext = sc.nextInt();
+                    String renttext1 = "Rent: "+renttext;
+                    System.out.println("Enter money spent on Clothes and other Materialistic Objects:  ");
+                    int Materialob = sc.nextInt();
+                    String materialob1 = "Extra Expenditure: "+Materialob;
+                    System.out.println("Enter money spent on food: ");
+                    int foodtext = sc.nextInt();
+                    String foodtext1 = "Food: "+foodtext;
+                    float num = 0.5;
+                    int tax = salaryText - (50/100*salaryText);
+                    int tms = salaryText - (renttext+Materialob+foodtext+tax);
+                    String tms1 = "Your Savings: "+tms;
+                    String tax1 = "Tax: "+tax;
+                    
+
 
                     FileWriter myWriter = new FileWriter(file);
-                    myWriter.write(newText);
+                    myWriter.write(salarytext1+"\n"+renttext1+"\n"+materialob1+"\n"+foodtext1+"\n"+tax1+"\n"+tms1);
                     myWriter.close();
                     System.out.println("Successfully wrote to the file.");
                 }
                 if(replace.equalsIgnoreCase("n"))
-                {   String filenamen = "med.txt";
-                    File filen = new File(filenamen);
-                    Scanner readern = new Scanner(filen);
-                    while (readern.hasNextLine()) 
+                {   
+                    while (reader.hasNextLine()) 
                     {
-                        
-                        String linen = readern.nextLine();
-                        System.out.println(linen);
+
                         reader.close();
-                        readern.close();
                         
                     }
                     sc.close();
@@ -54,6 +67,6 @@ class monthlyexpenditure
                 System.out.println("An error occurred.");
                 e.printStackTrace();
             }
-        }
+        
     }
 }
