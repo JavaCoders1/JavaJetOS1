@@ -2,9 +2,8 @@ import java.util.Scanner;
 
 public class JavaJetOS1tests
 {
-    public static int Calculator(RunAppAgain){
+    public static int Calculator(int RunAppAgain){
         Scanner sc = new Scanner(System.in);
-        int RunAppAgain = 1;
         int RunCalcAgain;
         double a;
         double b;
@@ -130,8 +129,9 @@ public class JavaJetOS1tests
             System.out.println("Would you like to run another app or shut down the OS?\nPress 1 to run another app and press 0 to shut down the OS.");
             RunAppAgain = sc.nextInt();
         }
+        return RunAppAgain;
     }
-}
+
 
 
     public static void main(String[] args)

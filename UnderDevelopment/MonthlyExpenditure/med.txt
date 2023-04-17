@@ -1,5 +1,6 @@
 Salary: 200000
 Rent: 400
-Extra Expenditure: 500
-Food: 500
-Your Savings: -1400
+Extra Expenditure: 100
+Food: 100
+Tax: 200000
+Your Savings: -600
