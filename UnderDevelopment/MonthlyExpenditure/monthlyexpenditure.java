@@ -37,7 +37,7 @@ class monthlyexpenditure
                     System.out.println("Enter money spent on food: ");
                     int foodtext = sc.nextInt();
                     String foodtext1 = "Food: "+foodtext;
-                    float num = 0.5;
+                    float num = (float) 0.5;
                     int tax = salaryText - (50/100*salaryText);
                     int tms = salaryText - (renttext+Materialob+foodtext+tax);
                     String tms1 = "Your Savings: "+tms;

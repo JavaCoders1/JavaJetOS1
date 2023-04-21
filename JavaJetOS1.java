@@ -308,9 +308,7 @@ public class JavaJetOS1
                     }
                 else if (AppToRun==0){
                     RunAppAgain = 0;
-                }
-                else if(AppToRun==4)
-                {
+                }else if(AppToRun==4){
                      System.out.println("Do you want to 1. Create a File or 2. Open a File");
         int option = sc.nextInt();
         sc.nextLine();
@@ -373,19 +371,11 @@ public class JavaJetOS1
             System.out.println("Invalid option.");
         }
 
-<<<<<<< HEAD
-        //sc.close();
-=======
-        
->>>>>>> 174c28f83aae9e471b5719696e2bf1f78ce2ebe9
-                }
             }
-        }
-        else{
-            System.out.println("Incorrect Username or Password.");
         }
         System.out.println("Shutting down JavaJetOS.");
     }
+}
 }
 
 
