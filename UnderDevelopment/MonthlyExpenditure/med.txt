@@ -1,5 +1,0 @@
-Salary: 200000
-Rent: 40000
-Extra Expenditure: 50000
-Food: 15000
-Your Savings: 95000
