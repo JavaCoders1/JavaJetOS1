@@ -8,6 +8,9 @@ public class gui extends JFrame
 
     public static void main(String[] args)
     {
+        JTextField usernamebox;
+        
+        
 
         gui window = new gui();
         window.setSize(500,500);
@@ -18,7 +21,7 @@ public class gui extends JFrame
         JLabel userlabel = new JLabel("Enter username: ");
         window.getContentPane().add(userlabel);
 
-        JTextField usernamebox = new JTextField(10);
+        usernamebox = new JTextField();
         window.getContentPane().add(usernamebox);
 
         JLabel passlabel = new JLabel("Enter password: ");
@@ -34,6 +37,15 @@ public class gui extends JFrame
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         
+
+    }
+    public void actionPerformed(ActionEvent ae)
+    {
+        String username = new String(usernamebox.getText());
+        String password = new String(passbox.getText());
+
+
+
 
     }
 }
