@@ -113,9 +113,6 @@ public class tic {
                 xTurn = true;
             }
             table(boxes);
-            System.out.println(boxes[0]);
-            System.out.println(boxes[1]);
-            System.out.println(boxes[2]);
             if((boxes[0].equals("     X    |") && boxes[1].equals("     X    |") && boxes[2].equals("   X   ")) || (boxes[3].equals("     X    |") && boxes[4].equals("     X    |") && boxes[5].equals("   X   ") ) || (boxes[6].equals("     X    |") && boxes[7].equals("     X    |") && boxes[8].equals("   X   ") ) || (boxes[0].equals("     X    |") && boxes[3].equals("     X    |") && boxes[6].equals("     X    |") ) || (boxes[1].equals("     X    |") && boxes[4].equals("     X    |") && boxes[7].equals("     X    |") ) || (boxes[2].equals("   X   ") && boxes[5].equals("   X   ") && boxes[8].equals("   X   ") ) || (boxes[0].equals("     X    |") && boxes[4].equals("     X    |") && boxes[8].equals("   X   ") ) || (boxes[6].equals("     X    |") && boxes[4].equals("     X    |") && boxes[2].equals("   X   ") )){
                 System.out.println("X wins!!");
                 runGame = false;
