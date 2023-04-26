@@ -4,21 +4,21 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class gui extends JFrame implements ActionListener
+public class guitry extends JFrame implements ActionListener
 {
     JLabel userlabel, passlabel;
     JTextField usernamebox, passbox;
     JButton loginbutton;
     JPanel panel;
 
-    gui() {
+    guitry() {
         setTitle("Login Screen");
         setSize(300, 150);
         setLocationRelativeTo(null);
         setResizable(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        panel = new JPanel(new GridLayout(3, 2));
+        panel = new JPanel(new GridLayout(3, 4));
         add(panel);
 
         userlabel = new JLabel("Enter username: ");
@@ -35,7 +35,7 @@ public class gui extends JFrame implements ActionListener
 
         loginbutton = new JButton("Login");
         loginbutton.addActionListener((ActionListener) this);
-        panel.add(loginbutton);
+        panel.add(loginbutton,3);
 
         setVisible(true);
         }
@@ -63,7 +63,7 @@ public class gui extends JFrame implements ActionListener
 
     public static void main(String[] args)
     {
-        new gui(); 
+        new guitry(); 
 
     }
 }
