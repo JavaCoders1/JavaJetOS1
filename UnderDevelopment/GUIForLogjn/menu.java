@@ -75,9 +75,18 @@ public class menu extends JFrame implements ActionListener
         setVisible(true);
     }
 
+<<<<<<< HEAD
     public static void main(String[] args; String apps0, apps1, apps2, apps3, apps4)
     {
         
+=======
+    public static void main(String[] args) {
+        String apps0 = args[0];
+        String apps1 = args[1];
+        String apps2 = args[2];
+        String apps3 = args[3];
+        String apps4 = args[4];        
+>>>>>>> 96ed1185434db23e0811d84fd11b6a7a9d906773
         
         boolean run = true;
         new menu();
