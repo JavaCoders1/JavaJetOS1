@@ -1,6 +1,0 @@
-Salary: 20000000
-Rent: 500000
-Extra Expenditure: 10000000
-Food: 500000
-Tax: 20000000
-Your Savings: -11000000
