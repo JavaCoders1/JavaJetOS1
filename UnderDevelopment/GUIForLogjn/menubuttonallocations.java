@@ -43,17 +43,23 @@ public class menubuttonallocations extends JFrame implements ActionListener
 
         calc = new JButton("Calculator");
         calc.addActionListener(this);
-        calc.setBounds(15,35,10,1);
-        
+        calc.setBounds(15,25,120,25);
+        menuWin.add(calc);
 
         ageCalc = new JButton("Age Calculator");
         ageCalc.addActionListener(this);
+        ageCalc.setBounds(15,25,120,25);
+        menuWin.add(ageCalc);
 
         numGame = new JButton("Number Game");
         numGame.addActionListener(this);
+        numGame.setBounds(15,25,120,25);
+        menuWin.add(numGame);
 
         monExp = new JButton("Monthly Expenditure");
         monExp.addActionListener(this);
+        monExp.setBounds(15,25,120,25);
+        menuWin.add(monExp);
 
         if (apps0.equals("0")){
             menuWin.remove(ageCalc);

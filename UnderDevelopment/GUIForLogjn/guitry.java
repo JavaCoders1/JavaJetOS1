@@ -59,6 +59,9 @@ public class guitry extends JFrame implements ActionListener
             if(username.equals("default")&& password.equals("password"))
             {
                 JOptionPane.showMessageDialog(this, "Logged in successfully!");
+                menubuttonallocations menubuttonallocations = new menubuttonallocations();
+                menubuttonallocations.setVisible(true);
+                dispose();
             }
             else
             {
