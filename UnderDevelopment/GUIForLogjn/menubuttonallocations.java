@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class menu extends JFrame implements ActionListener
+public class menubuttonallocations extends JFrame implements ActionListener
 {
     JPanel menuWin;
     JLabel searchlabel;
@@ -15,7 +15,7 @@ public class menu extends JFrame implements ActionListener
     String apps2 = "1"; // Monthly Expenditure
     String apps3 = "1"; // Number Guessing Game
     String apps4 = "1"; // Text Editor
-    menu()
+    menubuttonallocations()
     {
         setTitle("Menu");
         setSize(400, 275);
@@ -38,13 +38,13 @@ public class menu extends JFrame implements ActionListener
 
         textEditor = new JButton("Text Editor");
         textEditor.addActionListener(this);
-        textEditor.setBounds(15,25,50,25);
-        add(textEditor);
+        textEditor.setBounds(15,25,120,25);
+        menuWin.add(textEditor);
 
         calc = new JButton("Calculator");
         calc.addActionListener(this);
-        calc.setBounds(15,25,50,25);
-        add(calc);
+        calc.setBounds(15,35,10,1);
+        
 
         ageCalc = new JButton("Age Calculator");
         ageCalc.addActionListener(this);
@@ -75,21 +75,15 @@ public class menu extends JFrame implements ActionListener
         setVisible(true);
     }
 
-    public static void main(String[] args; String apps0, apps1, apps2, apps3, apps4)
+    public static void main(String[] args)
     {
-        
-        
-        boolean run = true;
-        new menu();
-        while (run == true){
-            String searchText = searchbar.getText();
-            // apps0 = "0";
-            if(!"Age Calculator".startsWith(searchText)){
-                apps0 = "0";
-            }
-               
-            
-        }
+        new menubuttonallocations();
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
     }
 
 }
