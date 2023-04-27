@@ -9,6 +9,7 @@ public class menu extends JFrame implements ActionListener
     JPanel menuWIndow;
     JLabel searchlabel;
     JTextField searchbar;
+    JButton files, calculator, agecalc, num
     menu(){
         setTitle("Menu");
         setSize(400, 275);
