@@ -30,7 +30,7 @@ public class menu extends JFrame implements ActionListener
 
         searchb = new JButton("Search");
         searchb.addActionListener(this);
-        searchb.setBounds(200, 235, 100,25);
+        searchb.setBounds(175, 235, 100,25);
         panel1.add(searchb);
 
 
