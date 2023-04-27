@@ -15,6 +15,8 @@ public class menu extends JFrame implements ActionListener
         setSize(400, 300);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        setResizable(false);
 
         panel1 = new JPanel();
         panel1.setLayout(null);
