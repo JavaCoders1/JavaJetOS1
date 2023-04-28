@@ -40,7 +40,7 @@ public class numgame extends JFrame implements ActionListener
 
     
 
-    public void actionperformed (ActionEvent ae)
+    public void actionPerformed (ActionEvent ae)
     {
         String num2 = num.getText();
         int num1 = Integer.parseInt(num2);
@@ -87,5 +87,9 @@ public class numgame extends JFrame implements ActionListener
     {
         new numgame();
     }
+
+
+
+
     
 }
