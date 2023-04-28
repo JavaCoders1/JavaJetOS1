@@ -1,5 +1,8 @@
 package UnderDevelopment.GUIForLogjn;
 import javax.swing.*;
+
+import UnderDevelopment.cc;
+
 import java.awt.*;
 import java.awt.event.*;
 
@@ -58,8 +61,8 @@ public class guitry extends JFrame implements ActionListener
             if(username.equals("default")&& password.equals("password"))
             {
                 JOptionPane.showMessageDialog(this, "Logged in successfully!");
-                menubuttonallocations menubuttonallocations = new menubuttonallocations();
-                menubuttonallocations.setVisible(true);
+                cc cc = new cc();
+                cc.setVisible(true);
                 dispose();
             }
             else

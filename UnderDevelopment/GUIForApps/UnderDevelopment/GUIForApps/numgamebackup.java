@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class numgame extends JFrame implements ActionListener {
+public class numgamebackup extends JFrame implements ActionListener {
     JPanel numpanel;
     JLabel numlabel;
     JTextField num;
@@ -12,7 +12,7 @@ public class numgame extends JFrame implements ActionListener {
     int number = 1 + (int) (100 * Math.random());
     int remainingTries = 10; // added a variable to keep track of remaining tries
 
-    public numgame() {
+    numgamebackup() {
         
         setTitle("Number Game");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -65,6 +65,6 @@ public class numgame extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) {
-        new numgame();
+        new numgamebackup();
     }
 }
