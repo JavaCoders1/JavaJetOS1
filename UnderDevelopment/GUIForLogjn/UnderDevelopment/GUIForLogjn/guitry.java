@@ -1,5 +1,4 @@
 package UnderDevelopment.GUIForLogjn;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
