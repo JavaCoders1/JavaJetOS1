@@ -13,7 +13,7 @@ public class texteditor extends JFrame implements ActionListener
     texteditor()
     {
         setTitle("Text Editor");
-        setSize(400,200);
+        setSize(420,90);
         setResizable(false);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -23,24 +23,22 @@ public class texteditor extends JFrame implements ActionListener
         add(textpanel);
 
         fileenter = new JLabel("Create or Open File: ");
-        fileenter.setBounds(15, 15, 120, 25);
+        fileenter.setBounds(15, 15, 140, 25);
         textpanel.add(fileenter);
 
         createfile = new JButton("Create a File");
         createfile.addActionListener(this);
-        createfile.setBounds(140,15,120,25);
+        createfile.setBounds(145,15,120,25);
         textpanel.add(createfile);
 
         openfile = new JButton("Open a File");
         openfile.addActionListener(this);
-        openfile.setBounds(265, 15,120,25);
+        openfile.setBounds(270, 15,120,25);
         textpanel.add(openfile);
 
-
-
-        
-
+        setVisible(true);
     }
-
+    public void actionPerformed(ActionEvent ae){}
+    public static void main(String[] args){new texteditor();}
     
 }
