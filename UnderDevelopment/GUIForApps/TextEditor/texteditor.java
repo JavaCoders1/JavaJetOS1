@@ -38,7 +38,13 @@ public class texteditor extends JFrame implements ActionListener
 
         setVisible(true);
     }
-    public void actionPerformed(ActionEvent ae){}
+    public void actionPerformed(ActionEvent ae)
+    {
+        if(ae.getSource() == fileenter)
+        {
+            
+        }
+    }
     public static void main(String[] args){new texteditor();}
     
 }
