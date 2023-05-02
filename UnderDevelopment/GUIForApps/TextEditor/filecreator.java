@@ -45,9 +45,9 @@ public class filecreator extends JFrame implements ActionListener {
         save.setBounds(345, 100, 100, 25);
         cpanel.add(save);
 
-        createfile = new JButton("Create File");
+        createfile = new JButton("Create/Edit File");
         createfile.addActionListener(this);
-        createfile.setBounds(270, 15, 100, 25);
+        createfile.setBounds(270, 15, 150, 25);
         cpanel.add(createfile);
 
         setVisible(true);

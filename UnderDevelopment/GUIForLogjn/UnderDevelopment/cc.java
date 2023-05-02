@@ -1,6 +1,7 @@
 package UnderDevelopment;
 import javax.swing.*;
 
+import TextEditor.texteditor;
 import UnderDevelopment.GUIForApps.numgame;
 
 import java.awt.*;
@@ -79,11 +80,19 @@ public class cc extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent ae)
     {
         String seresults = searchbar.getText();
-        if (ae.getSource() == searchbutton){
+        if (ae.getSource() == searchbutton)
+        {
             if (seresults.equalsIgnoreCase("numbergame"))
             {
                 numgame numgame= new numgame();
                 numgame.setVisible(true);
+                dispose();
+            }
+
+            if(seresults.equalsIgnoreCase("texteditor"))
+            {
+                texteditor texteditor = new texteditor();
+                texteditor.setVisible(true);
                 dispose();
             }
         }

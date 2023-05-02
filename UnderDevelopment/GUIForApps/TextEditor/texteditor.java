@@ -10,7 +10,7 @@ public class texteditor extends JFrame implements ActionListener
     JLabel fileenter;
     JButton createfile, openfile;
 
-    texteditor()
+    public texteditor()
     {
         setTitle("Text Editor");
         setSize(420,90);
@@ -40,9 +40,11 @@ public class texteditor extends JFrame implements ActionListener
     }
     public void actionPerformed(ActionEvent ae)
     {
-        if(ae.getSource() == fileenter)
+        if(ae.getSource() == createfile)
         {
-            
+            filecreator filecreator = new filecreator();
+            filecreator.setVisible(true);
+            dispose();
         }
     }
     public static void main(String[] args){new texteditor();}
