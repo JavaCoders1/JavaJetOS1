@@ -3,6 +3,7 @@ import javax.swing.*;
 
 import TextEditor.texteditor;
 import UnderDevelopment.GUIForApps.numgame;
+import agecalculator.agecalcmain;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -93,6 +94,12 @@ public class cc extends JFrame implements ActionListener {
             {
                 texteditor texteditor = new texteditor();
                 texteditor.setVisible(true);
+                dispose();
+            }
+            if(seresults.equalsIgnoreCase("agecalc"))
+            {
+                agecalcmain agecalcmain = new agecalcmain();
+                agecalcmain.setVisible(true);
                 dispose();
             }
         }
