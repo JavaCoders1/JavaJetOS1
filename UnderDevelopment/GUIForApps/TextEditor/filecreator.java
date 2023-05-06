@@ -53,7 +53,8 @@ public class filecreator extends JFrame implements ActionListener {
         setVisible(true);
     }
 
-    public void actionPerformed(ActionEvent ae) {
+    public void actionPerformed(ActionEvent ae) 
+    {
         String filename1 = filenamefield.getText();
         File file = new File(filename1);
 

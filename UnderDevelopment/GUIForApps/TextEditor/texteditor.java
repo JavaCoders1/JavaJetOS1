@@ -46,6 +46,13 @@ public class texteditor extends JFrame implements ActionListener
             filecreator.setVisible(true);
             dispose();
         }
+        if(ae.getSource() == openfile)
+        {
+            fileopener fileopener = new fileopener();
+            fileopener.setVisible(true);
+            dispose();
+
+        }
     }
     public static void main(String[] args){new texteditor();}
     
