@@ -1,0 +1,6 @@
+Salary: 12
+Rent: 12
+Extra Expenditure: 12
+Food: 12
+Tax: 12
+Your Savings: -36

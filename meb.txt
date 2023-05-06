@@ -1,0 +1,4 @@
+Salary: 2
+Rent/EMI: 3
+Extra: 4
+Food: 5.
