@@ -104,23 +104,44 @@ public class monthlymain extends JFrame implements ActionListener
     public void actionPerformed(ActionEvent ae)
     {
         String salary1 = salaryTextField.getText();
-        String salary = "Salary: " + salary1;
+        double salaryint = Integer.parseInt(salary1);
+        String salary = "Salary: " + salaryint;
+        
 
         String rent1 = rentTextField.getText();
-        String rent = "Rent/EMI: " + rent1;
+        double rentint = Integer.parseInt(rent1);
+        String rent = "Rent/EMI: " + rentint;
+        
 
         String extra1 = extraTextField.getText();
-        String extra = "Extra: " + extra1;
+        double extraint = Integer.parseInt(extra1);
+        String extra = "Extra: " + extraint;
+        
 
         String food1 = foodTextField.getText();
-        String food = "Food: " + food1;
+        double foodint = Integer.parseInt(food1);
+        String food = "Food: " + foodint;
+        
 
-        String total = salary+"\n" + rent +"\n" + extra +"\n"+ food + ".";
+        double taxint = 0.5*salaryint;
+        String tax = "Tax: " + taxint;
+
+        double totalint = rentint + extraint + foodint + taxint ;
+
+        double savingsint = salaryint - totalint;
+        String savings = "Savings: "+savingsint;
+        
+
+
+
+        String total = salary+"\n" + rent +"\n" + extra +"\n"+ food + "\n"+tax + "\n"+savings+ ".";
+        String msgtotal = salary+"\n" + rent +"\n" + extra +"\n"+ food + "\n"+tax + ".";
 
 
     
-        if(ae.getSource() == salaryButton){
-            JOptionPane.showMessageDialog(this,total);
+        if(ae.getSource() == salaryButton)
+        {
+            JOptionPane.showMessageDialog(this,msgtotal);
             try {
                 myWriter.write(total);
             } catch (IOException e) {

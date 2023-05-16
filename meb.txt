@@ -1,4 +1,6 @@
-Salary: 2
-Rent/EMI: 3
-Extra: 4
-Food: 5.
+Salary: 60.0
+Rent/EMI: 10.0
+Extra: 10.0
+Food: 10.0
+Tax: 30.0
+Savings: 0.0.

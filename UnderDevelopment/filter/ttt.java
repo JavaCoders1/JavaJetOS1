@@ -46,11 +46,28 @@ public class ttt extends JFrame
                     {
                         playersign = 'X';
                     }
+                    victory();
                 }
                 
             });
             add(buttons[i]);
         }
+
+        
+    }
+    public boolean checkrows()
+        {
+            int i = 0;
+            int j;
+            for(j=0; j<3;j++)
+            return true;
+            
+            
+        }
+
+    public void victory()
+    {
+        
     }
     
     public static void main(String[] args)
