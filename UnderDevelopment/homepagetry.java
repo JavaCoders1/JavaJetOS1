@@ -4,7 +4,6 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.LineBorder;
-import javax.swing.plaf.basic.BasicButtonUI;
 import javax.swing.text.MutableAttributeSet;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.Style;
@@ -12,21 +11,19 @@ import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 
 import java.awt.*;
-import java.awt.Color;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
 
-public class homepage extends JFrame implements ActionListener
+public class homepagetry extends JFrame implements ActionListener
 {
-    JButton sup,dealsarrow;
-    JPanel npanel,dealpanel;
+    JButton sup;
+    JPanel npanel;
     JPanel intermediatePanel;
     JPanel panel;
-    final Color darkgreen = new Color(0,102,0);
-    homepage()
+    homepagetry()
     {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setTitle("HomePage");
@@ -69,75 +66,16 @@ public class homepage extends JFrame implements ActionListener
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
+                
+                
+                
 
                 
-                g2d.setColor(darkgreen);
-                g2d.fillRoundRect(-10,105,150,70,30,30);
-            
-            }
-
-            public Dimension getPreferredSize() {
-                return new Dimension(500, 500);
             }
                 
         };
-        panel.setLayout(null);
         
         panel.setOpaque(false);
-
-        JLabel deals = new JLabel("Deals!");
-        deals.setFont(new Font("Arial", Font.BOLD,19));
-        deals.setForeground(Color.WHITE);
-        deals.setBounds(10,113,280,50);
-        panel.add(deals);
-
-        dealsarrow = new JButton(">");
-        dealsarrow.setBounds(75,128,50,25);
-        dealsarrow.setOpaque(true);
-        dealsarrow.setFont(new Font("Arial", Font.BOLD,22));
-        dealsarrow.setBackground(darkgreen);
-        dealsarrow.setForeground(Color.WHITE);
-        dealsarrow.setBorder(BorderFactory.createEmptyBorder(2,2,2,2));
-        UIManager.put("Button.select",darkgreen);
-        UIManager.put("Button.Focus",darkgreen.darker());
-        dealsarrow.setFocusPainted(false);
-        dealsarrow.addActionListener(new ActionListener() 
-        {
-            public void actionPerformed(ActionEvent ae)
-            {
-                dealsarrow.setBorder(BorderFactory.createLineBorder(Color.PINK,1));
-                Timer timer = new Timer(200, new ActionListener() {
-                    public void actionPerformed(ActionEvent ae)
-                    {
-                        dealsarrow.setBorder(BorderFactory.createEmptyBorder(2,2,2,2));
-                    }
-                });
-                timer.setRepeats(false);
-                timer.start();
-
-                deals();
-                dealpanel.setVisible(true);
-                if(dealpanel == null || !dealpanel.isVisible())
-                {
-                    dealsarrow.setVisible(true);
-                }
-            }
-        });
-        
-
-        dealsarrow.setUI(new BasicButtonUI() {
-            @Override
-            protected void paintButtonPressed(Graphics g, AbstractButton b) {
-                Graphics2D g2d = (Graphics2D) g;
-                g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-                g2d.setColor(darkgreen.darker());
-                g2d.fillRect(0, 0, b.getWidth(), b.getHeight());
-                g2d.setColor(b.getForeground());
-                super.paintButtonPressed(g, b);
-            }
-        });
-        panel.add(dealsarrow);
-
 
         
         JLabel label = new JLabel("Welcome!");
@@ -152,7 +90,7 @@ public class homepage extends JFrame implements ActionListener
         JLabel aboutus = new JLabel("About Us");
         Font font = new Font("Arial", Font.BOLD, 22);
         aboutus.setFont(font);
-        aboutus.setBounds(10,300,120,20);
+        aboutus.setBounds(10,305,120,20);
         panel.add(aboutus);
 
         ImageIcon oldimage = new ImageIcon("/Users/ojaswin/Desktop/Mac/-5678/coffee2.jpg");
@@ -170,13 +108,12 @@ public class homepage extends JFrame implements ActionListener
 
 
         JTextPane textPane = new JTextPane();
-        textPane.setBounds(5,332,455,150);
+        textPane.setBounds(5,350,455,150);
         textPane.setFont(new Font("Arial", Font.PLAIN, 12));
         textPane.setForeground(Color.BLACK);
         Color backgroundColor = panel.getBackground();
         textPane.setBackground(backgroundColor);
         textPane.setText("Our story begins in 1971 along the cobblestone streets of Seattle’s historic Pike Place Market. It was here where Starbucks opened its first store, offering fresh-roasted coffee beans, tea and spices from around the world for our customers to take home. Our name was inspired by the classic tale, “Moby-Dick,” evoking the seafaring tradition of the early coffee traders.");
-        textPane.setFont(new Font("Arial",Font.BOLD,13));
         String content = textPane.getText();
         StyledDocument doc = textPane.getStyledDocument();
         Style style = doc.addStyle("bold", null);
@@ -192,7 +129,7 @@ public class homepage extends JFrame implements ActionListener
         panel.add(textPane);
 
         panel.add(sup);
-        
+        panel.setLayout(null);
         panel.add(label);
 
         add(panel);
@@ -216,10 +153,7 @@ public class homepage extends JFrame implements ActionListener
             intermediatePanel.setVisible(false);
 
         }
-        else if(ae.getSource()==dealsarrow)
-        {
-            dealsarrow.setVisible(false);
-        }            
+            
     }
     private void menu()
     {
@@ -261,64 +195,13 @@ public class homepage extends JFrame implements ActionListener
         npanel.setVisible(true);
 
     }
-    private void deals()
-    {
-        dealsarrow.setVisible(false);
+    
 
-        for (Component component : panel.getComponents()) {
-            if (component != dealpanel) {
-                component.setVisible(false);
-            }
-        }
-
-        dealpanel = new JPanel()
-        {
-            protected void paintComponent(Graphics g)
-            {
-                super.paintComponent(g);
-                g.setColor(Color.GRAY);
-                g.fillRect(0,0,500,60);
-
-                try {
-                    BufferedImage dbgimage = ImageIO.read(new File("/Users/ojaswin/Desktop/Mac/-5678/coffeebg1.jpg"));
-                    int dx = 0;
-                    int dy = 60;
-                    int dwidth = 500;
-                    int dheight = 430;
-
-                    g.drawImage(dbgimage,dx,dy,dwidth,dheight,null);
-
-                } catch (IOException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-                Graphics2D g2d = (Graphics2D) g.create();
-                g2d.setColor(darkgreen);
-
-                g2d.fillRoundRect(20,100,150,50,30,30);
-
-            }
-
-        };
-        panel.add(dealpanel);
-        dealpanel.setBounds(0,0,500,500);
-        dealpanel.setVisible(true);
-
-        JLabel title = new JLabel("Check Out Latest Deals!");
-        title.setBounds(200,30,200,50);
-        title.setFont(new Font("Arial",Font.BOLD,22));
-        title.setBackground(Color.GRAY);
-        title.setForeground(Color.BLACK);
-        dealpanel.add(title);
-
-
-        
-    }
 
 public static void main(String[] args)
     {
     
-        new homepage();
+        new homepagetry();
     
     }
     
