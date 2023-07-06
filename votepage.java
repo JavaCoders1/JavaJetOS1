@@ -6,14 +6,19 @@ import java.sql.*;
 import javax.swing.*;
 
 
+
 public class votepage extends JFrame implements ActionListener
 {
-    JPanel panelframe, vibgyorpanel, president, vicepresident,greencaptain;
-    JButton to_p, to_vp,to_ghc;
+    JPanel panelframe, vibgyorpanel, president, vicepresident,greencaptain, greenvicecap, bluecaptain, bluevicecap;
+    JButton to_p, to_vp, to_ghc, to_ghvc, to_bhc,to_bhvc;
     String pvar = "0";
     String vpvar = "0";
     String gcvar = "0";
-    JButton buttonp1, buttonp2, buttonp3, buttonvp1, buttonvp2, buttonvp3,buttongc1,buttongc2,buttongc3;
+    String gvcvar = "0";
+    String bcvar = "0";
+    String bvcvar = "0";
+    JButton buttonp1, buttonp2, buttonp3, buttonvp1, buttonvp2, buttonvp3,buttongc1,buttongc2,buttongc3, buttongvc1, buttongvc2, buttongvc3;
+    JButton buttonbc1, buttonbc2,buttonbc3,buttonbvc1,buttonbvc2,buttonbvc3;
 
     
 
@@ -35,13 +40,12 @@ public class votepage extends JFrame implements ActionListener
        vicepresident = new JPanel();
        president = new JPanel();
        greencaptain = new JPanel();
+       greenvicecap = new JPanel();
+       bluecaptain = new JPanel();
 
        panelframe.add(vibgyorpanel,"1");
        cl.show(panelframe,"1");
        
-       
-       
-
        //Vibgyor Panel Customization
        
        vibgyorpanel.setLayout(null);
@@ -102,7 +106,6 @@ public class votepage extends JFrame implements ActionListener
        to_vp = new JButton("Next");
        to_vp.setBounds(300,300,100,50);
        president.add(to_vp);
-
 
        //Vicepresident Customization
        
@@ -193,8 +196,99 @@ public class votepage extends JFrame implements ActionListener
        buttongc3.setBounds(155,265,170,50);
        greencaptain.add(buttongc3);
 
-       
+       to_ghvc = new JButton("Next");
+       to_ghvc.setBounds(300,300,100,50);
+       greencaptain.add(to_ghvc);
 
+       //Greenhouse Vice Captain Panel
+       panelframe.add(greenvicecap,"5");
+       greenvicecap.setBounds(0,0,500,500);
+       greenvicecap.setLayout(null);
+
+       JLabel gvc = new JLabel("GreenHouse Vice Captain");
+       Font gvcfont = new Font("Arial",Font.BOLD, 32);
+       gvc.setFont(gvcfont);
+       gvc.setBounds(100,90,300,100);
+       greenvicecap.add(gvc);
+
+       buttongvc1 = new JButton("Button 1");
+       buttongvc1.addActionListener(new ActionListener() {
+        public void actionPerformed(ActionEvent e)
+        {
+            gvcvar = "1";
+        }
+       });
+       buttongvc1.setBounds(155,145,170,50);
+       greenvicecap.add(buttongvc1);
+
+       buttongvc2 = new JButton("Button 2");
+       buttongvc2.addActionListener(new ActionListener() {
+        public void actionPerformed(ActionEvent e)
+        {
+            gvcvar = "2";
+        }
+       });
+       buttongvc2.setBounds(155,205,170,50);
+       greenvicecap.add(buttongvc2);
+
+       buttongvc3 = new JButton("Button 3");
+       buttongvc3.addActionListener(new ActionListener() {
+        public void actionPerformed(ActionEvent e)
+        {
+            gvcvar = "3";
+        }
+       });
+       buttongvc3.setBounds(155,265,170,50);
+       greenvicecap.add(buttongvc3);
+    
+       to_bhc = new JButton("Next");
+       to_bhc.setBounds(300,300,100,50);
+       greenvicecap.add(to_bhc);
+
+
+       //BlueHouse Captain Panel
+       panelframe.add(bluecaptain,"6");
+       bluecaptain.setBounds(0,0,500,500);
+       bluecaptain.setLayout(null);
+
+       JLabel bc = new JLabel("Blue House Captain");
+       Font bcfont = new Font("Arial",Font.BOLD,32);
+       bc.setBounds(100,90,300,100);
+       bc.setFont(bcfont);
+       bluecaptain.add(bc);
+
+       buttonbc1 = new JButton("Button 1");
+       buttonbc1.addActionListener(new ActionListener() {
+        public void actionPerformed(ActionEvent e)
+        {
+            bcvar = "1";
+        }
+       });
+       buttonbc1.setBounds(155,145,170,50);
+       bluecaptain.add(buttonbc1);
+
+       buttonbc2 = new JButton("Button 2");
+       buttonbc2.addActionListener(new ActionListener() {
+        public void actionPerformed(ActionEvent e)
+        {
+            bcvar = "2";
+        }
+       });
+       buttonbc2.setBounds(155,205,170,50);
+       bluecaptain.add(buttonbc2);
+
+       buttonbc3 = new JButton("Button 3");
+       buttonbc3.addActionListener(new ActionListener() {
+        public void actionPerformed(ActionEvent e){
+            bcvar = "3";
+        }
+       });
+       buttonbc3.setBounds(155,265,170,50);
+       bluecaptain.add(buttonbc3);
+
+       to_bhvc = new JButton("Next");
+       to_bhvc.setBounds(300,300,100,50);
+       bluecaptain.add(to_bhvc);
 
        //Transitioning Components and Methods
        vicepresident.setVisible(true);
@@ -373,6 +467,167 @@ public class votepage extends JFrame implements ActionListener
         }
        });;
 
+       to_ghvc.addActionListener(new ActionListener() {
+        public void actionPerformed(ActionEvent e)
+        {
+            cl.show(panelframe, "5");
+            greenvicecap.setVisible(true);
+            greencaptain.setVisible(false);
+
+            if(gcvar.equals("1"))
+            {
+                try
+                {
+                    String url = "jdbc:mysql://localhost:3306/votingdata?useSSL=false"; // Disable SSL
+                    String user = "root";
+                    String password = "Ojas@080109";
+
+                    Connection connection = DriverManager.getConnection(url, user,password);
+                    String name = "Button 1";
+                    String query = "INSERT INTO greencaptain_data VALUES('"+name+"')";
+                    Statement sta = connection.createStatement();
+                    int x = sta.executeUpdate(query);
+                    sta.close();
+                    
+                    connection.close();
+
+                }
+                catch(Exception exception)
+                {
+                    exception.printStackTrace();
+                }
+            }
+
+            if(gcvar.equals("2"))
+            {
+                try
+                {
+                    String url = "jdbc:mysql://localhost:3306/votingdata?useSSL=false"; // Disable SSL
+                    String user = "root";
+                    String password = "Ojas@080109";
+
+                    Connection connection = DriverManager.getConnection(url, user,password);
+                    String name = "Button 2";
+                    String query = "INSERT INTO greencaptain_data VALUES('"+name+"')";
+                    Statement sta = connection.createStatement();
+                    int x = sta.executeUpdate(query);
+                    sta.close();
+                    
+                    connection.close();
+
+                }
+                catch(Exception exception)
+                {
+                    exception.printStackTrace();
+                }
+            }
+
+            if(gcvar.equals("3"))
+            {
+                try
+                {
+                    String url = "jdbc:mysql://localhost:3306/votingdata?useSSL=false"; // Disable SSL
+                    String user = "root";
+                    String password = "Ojas@080109";
+
+                    Connection connection = DriverManager.getConnection(url, user,password);
+                    String name = "Button 3";
+                    String query = "INSERT INTO greencaptain_data VALUES('"+name+"')";
+                    Statement sta = connection.createStatement();
+                    int x = sta.executeUpdate(query);
+                    sta.close();
+                    
+                    connection.close();
+
+                }
+                catch(Exception exception)
+                {
+                    exception.printStackTrace();
+                }
+            }
+        }
+       });
+
+       to_bhc.addActionListener(new ActionListener() {
+        public void actionPerformed(ActionEvent e)
+        {
+            cl.show(panelframe,"6");
+            greenvicecap.setVisible(false);
+            bluecaptain.setVisible(true);
+
+            if(gvcvar.equals("1"))
+            {
+                try
+                {
+                    String url = "jdbc:mysql://localhost:3306/votingdata?useSSL=false"; // Disable SSL
+                    String user = "root";
+                    String password = "Ojas@080109";
+
+                    Connection connection = DriverManager.getConnection(url, user,password);
+                    String name = "Button 1";
+                    String query = "INSERT INTO greenvicecap_data VALUES('"+name+"')";
+                    Statement sta = connection.createStatement();
+                    int x = sta.executeUpdate(query);
+                    sta.close();
+                    
+                    connection.close();
+
+                }
+                catch(Exception exception)
+                {
+                    exception.printStackTrace();
+                } 
+            }
+
+            if(gvcvar.equals("2"))
+            {
+                try
+                {
+                    String url = "jdbc:mysql://localhost:3306/votingdata?useSSL=false"; // Disable SSL
+                    String user = "root";
+                    String password = "Ojas@080109";
+
+                    Connection connection = DriverManager.getConnection(url, user,password);
+                    String name = "Button 2";
+                    String query = "INSERT INTO greenvicecap_data VALUES('"+name+"')";
+                    Statement sta = connection.createStatement();
+                    int x = sta.executeUpdate(query);
+                    sta.close();
+                    
+                    connection.close();
+
+                }
+                catch(Exception exception)
+                {
+                    exception.printStackTrace();
+                } 
+            }
+
+            if(gvcvar.equals("3"))
+            {
+                try
+                {
+                    String url = "jdbc:mysql://localhost:3306/votingdata?useSSL=false"; // Disable SSL
+                    String user = "root";
+                    String password = "Ojas@080109";
+
+                    Connection connection = DriverManager.getConnection(url, user,password);
+                    String name = "Button 3";
+                    String query = "INSERT INTO greenvicecap_data VALUES('"+name+"')";
+                    Statement sta = connection.createStatement();
+                    int x = sta.executeUpdate(query);
+                    sta.close();
+                    
+                    connection.close();
+
+                }
+                catch(Exception exception)
+                {
+                    exception.printStackTrace();
+                } 
+            }
+        }
+       });
        
        
        add(panelframe);
@@ -380,13 +635,9 @@ public class votepage extends JFrame implements ActionListener
        setVisible(true);
     }
 
-
     @Override
     public void actionPerformed(ActionEvent e) 
     {
-        
-        
-        
         
     }
 
