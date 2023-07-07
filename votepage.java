@@ -289,7 +289,21 @@ public class votepage extends JFrame implements ActionListener
        to_bhvc = new JButton("Next");
        to_bhvc.setBounds(300,300,100,50);
        bluecaptain.add(to_bhvc);
+       
+       //Blue House Vice Captain Panel
+       panelframe.add(bluevicecap,"7");
+       
+       buttonbvc1 = new JButton("Button 1");
+       buttonbvc1.addActionListner(new ActionListener(){
+           public void actionPerformed(ActionEvent e)
+           {
+               bvcvar ="1";
+        }
+        });
+        
 
+       
+       
        //Transitioning Components and Methods
        vicepresident.setVisible(true);
 
