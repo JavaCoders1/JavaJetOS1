@@ -32,7 +32,7 @@ public class bluecap extends JFrame
     JLabel imgl3;
     Border r3;
     String bcvar;
-    inserdata method = new inserdata();
+    
 
     JPanel bluecap = new JPanel()
     {
