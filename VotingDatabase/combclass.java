@@ -24,7 +24,7 @@ import java.awt.event.ActionListener;
 import java.sql.*;
 import javax.swing.*;
 
-import formethod.votepage;
+
 
 
 //Changes to be made in main code are: 
@@ -120,7 +120,7 @@ public class combclass extends JFrame
     private void insertdata(String tableName, String var)
     {
         try {
-            String url = "jdbc:mysql://localhost:3306/votingdata?useSSL=false";
+            String url = "jdbc:mysql://192.168.1.9:3306/votingdata?";
             String user = "root";
             String password = "Ojas@080109";
 
