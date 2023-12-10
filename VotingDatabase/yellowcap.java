@@ -16,7 +16,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.Border;
 
-import formethod.inserdata;
+
 
 //Changes to be made in main code are: 
 //Panel size to be set to 900(width),500(height)(line 26)
@@ -32,7 +32,6 @@ public class yellowcap extends JFrame
     JLabel imgl3;
     Border r3;
     String ycvar;
-    inserdata method = new inserdata();
 
     JPanel yellowcap = new JPanel()
     {
@@ -59,6 +58,26 @@ public class yellowcap extends JFrame
     };
     
 
+    private void insertdata(String tableName, String var)
+    {
+        try {
+            String url = "jdbc:mysql://192.168.1.9:3306/votingdata?";
+            String user = "root";
+            String password = "Ojas@080109";
+
+            Connection connection = DriverManager.getConnection(url, user, password);
+            String name = var;
+            String query = "INSERT INTO " + tableName + " VALUES('" + name + "')";
+            Statement sta = connection.createStatement();
+            int x = sta.executeUpdate(query);
+            sta.close();
+            connection.close();
+
+        } catch (SQLException e) {
+            System.err.println("SQL Exception: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
 
     public yellowcap()
     {
@@ -156,7 +175,7 @@ public class yellowcap extends JFrame
        to_yhvc.addActionListener(new ActionListener() {
         public void actionPerformed(ActionEvent ae)
         {
-            method.insertdata("yellowcaptain_data", ycvar);
+            insertdata("yellowcaptain_data", ycvar);
             new yellowvicecap();
         }
        });
