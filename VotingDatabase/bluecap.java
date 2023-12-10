@@ -16,7 +16,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.Border;
 
-import formethod.inserdata;
+
 
 //Changes to be made in main code are: 
 //Panel size to be set to 900(width),500(height)(line 26)
@@ -61,7 +61,7 @@ public class bluecap extends JFrame
     private void insertdata(String tableName, String var)
     {
         try {
-            String url = "jdbc:mysql://192.168.1.9:3306/votingdata?useSSL=false";
+            String url = "jdbc:mysql://192.168.1.9:3306/votingdata?";
             String user = "root";
             String password = "Ojas@080109";
 
