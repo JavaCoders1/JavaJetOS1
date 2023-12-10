@@ -16,7 +16,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.Border;
 
-import formethod.inserdata;
+
 
 //Changes to be made in main code are: 
 //Panel size to be set to 900(width),500(height)(line 26)
@@ -32,7 +32,7 @@ public class greencap extends JFrame
     JLabel imgl3;
     Border r3;
     String gcvar;
-    inserdata method = new inserdata();
+   
 
     JPanel greencap = new JPanel()
     {
@@ -60,6 +60,26 @@ public class greencap extends JFrame
     
 
 
+    private void insertdata(String tableName, String var)
+    {
+        try {
+            String url = "jdbc:mysql://192.168.1.9:3306/votingdata?";
+            String user = "root";
+            String password = "Ojas@080109";
+
+            Connection connection = DriverManager.getConnection(url, user, password);
+            String name = var;
+            String query = "INSERT INTO " + tableName + " VALUES('" + name + "')";
+            Statement sta = connection.createStatement();
+            int x = sta.executeUpdate(query);
+            sta.close();
+            connection.close();
+
+        } catch (SQLException e) {
+            System.err.println("SQL Exception: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
     public greencap()
     {
         
@@ -156,7 +176,7 @@ public class greencap extends JFrame
        to_ghvc.addActionListener(new ActionListener() {
         public void actionPerformed(ActionEvent ae)
         {
-            method.insertdata("greencaptain_data", gcvar);
+            insertdata("greencaptain_data", gcvar);
             new greenvicecap();
         }
        });
