@@ -16,7 +16,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.Border;
 
-import formethod.inserdata;
+
 
 //Changes to be made in main code are: 
 //Panel size to be set to 900(width),500(height)(line 26)
