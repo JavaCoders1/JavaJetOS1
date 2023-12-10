@@ -57,7 +57,27 @@ public class bluecap extends JFrame
             }
 
     };
-    
+
+    private void insertdata(String tableName, String var)
+    {
+        try {
+            String url = "jdbc:mysql://192.168.1.9:3306/votingdata?useSSL=false";
+            String user = "root";
+            String password = "Ojas@080109";
+
+            Connection connection = DriverManager.getConnection(url, user, password);
+            String name = var;
+            String query = "INSERT INTO " + tableName + " VALUES('" + name + "')";
+            Statement sta = connection.createStatement();
+            int x = sta.executeUpdate(query);
+            sta.close();
+            connection.close();
+
+        } catch (SQLException e) {
+            System.err.println("SQL Exception: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
 
 
     public bluecap()
@@ -156,7 +176,7 @@ public class bluecap extends JFrame
        to_bhvc.addActionListener(new ActionListener() {
         public void actionPerformed(ActionEvent ae)
         {
-            method.insertdata("bluecaptain_data", bcvar);
+            insertdata("bluecaptain_data", bcvar);
             new bluevicecap();
         }
        });
